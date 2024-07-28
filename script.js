@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('myForm').addEventListener('submit', function(event) {
+    const form = document.getElementById('registration-form'); // Select the form and store in a constant
+    const feedbackDiv = document.getElementById('form-feedback'); // Select the feedback division and store in a constant
+
+    form.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent form submission
 
         // Get input values
@@ -27,13 +30,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Display message
-        const messageElement = document.getElementById('message');
         if (message === '') {
-            messageElement.innerHTML = 'Form submitted successfully!';
-            messageElement.style.color = 'green';
+            feedbackDiv.innerHTML = 'Form submitted successfully!';
+            feedbackDiv.style.color = 'green';
         } else {
-            messageElement.innerHTML = message;
-            messageElement.style.color = 'red';
+            feedbackDiv.innerHTML = message;
+            feedbackDiv.style.color = 'red';
         }
     });
 });
